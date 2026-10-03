@@ -1,0 +1,3 @@
+[submodule "components/ssd1309"]
+	path = components/ssd1309
+	url = https://github.com/BCZGnth/SSD1309_Driver.git
