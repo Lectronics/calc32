@@ -1,0 +1,17 @@
+Float Type:
+    Floats need to be a wrapper class of some number that is able to convert the value to display the number in     scientific, engineering, or decimal notation. 
+
+    Floats when being operated on are promoted to the higher display notation of the two. the priority is:
+    Engineering
+    Scientific
+    Decimal
+
+    Floats in decimal display notation only show a max of 10 digits (though more may be present in the actual value)
+
+    In engineering or scientific notation, the Float wrapper needs to keep track of significant digits. This way, the displayed value has the option of showing only the appropriate amount of significant digits. 
+
+    A Float operation called SigFig will go back and forth between displaying up to 10 digits and displaying only the 
+    appropriate amount of significant figures. Float operations will always return with the same SigFig status as the value that was on the stack. If this flag is set, the value flags indicator area will say "sig"
+
+
+
