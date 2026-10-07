@@ -1,3 +1,6 @@
 [submodule "components/ssd1309"]
 	path = components/ssd1309
 	url = https://github.com/BCZGnth/SSD1309_Driver.git
+[submodule "components/ViennaMath-1.0.0"]
+	path = components/ViennaMath-1.0.0
+	url = https://github.com/Lectronics/FW_ViennaMath.git

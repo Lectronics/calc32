@@ -9,7 +9,7 @@
 - Allowed on Math / Engineering tests (since HP48, HP49, HP50g are not)
 
 ## General Notes:
-- Built on ViennaMath-1.0.0 (Added as my own "fork" of viennamath ported to esp32's Cmake configuration)
+- Built on ViennaMath-1.0.0 (Added as my own "fork" of ViennaMath ported to esp32's Cmake configuration)
 - Matrix / Vector operations are built on Eigen (hopefully assuming that the program flash size is large enough.)
 
 ## Build:
@@ -177,5 +177,32 @@ the decode function will iterate through the input string, seperating based on t
 
 
 ## RPN Stack Management (This does NOT refer to the stack program memory)
+The stack is simply implemented as a static vector with the type "stack_var_t" which is defined in [stack.h](components/stack/stack.hpp)
+The [stack.h](components/stack/stack.hpp) file also defines an alias for the stack vector type for ease of passing
+the stack to the operator functions.
+
+The stack, for good measure, is protected by a mutex.
+
+
 ## Operators (Type Checking, "Casting", and Operation)
+Every operation takes two parameters: a pointer to the stack vector, and a pointer to the mutex that protects the stack. Initially for testing, it will make more sense just to pass the stack vector without protection, since the 
+stack shouldn't ever be accessed twice at the same time...
+
+Each operator function is a wrapper that does the type handling and sends the stack values
+to the proper function for operation.
+
+The Operator wrapper function takes care of:
+- type checking
+- poping values off the stack
+- appending values to the stack
+
+A full list of operations will be attempted to be maintained in the header files [compoents/operations](components/operations/inc/operations.h) where we keep
+an array of function pointers that acts as the "catalog" of operations.  
+
+
 ## Exception Handling
+The highest priority stack value type is the error type. This is so that any type can be promoted to error.
+Consequently, also any operation that begins with an error type will promote to error and return error. 
+
+The error type is a string that can and most likely will be displayed on the stack as "Err" running the err_message
+operation will display the full error message and then remove the error from the stack. 
