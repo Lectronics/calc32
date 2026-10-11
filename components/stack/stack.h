@@ -2,6 +2,7 @@
 #define _STACK_HPP
 
 #include "viennamath/forwards.h"
+#include <vector>
 
 enum stack_types_t {
     STACK_NO_TYPE,
@@ -25,5 +26,11 @@ struct stack_val_t {
 };
 
 class calc32Stack {};
+
+
+// The stack variable is meant to be defined in the main source file of the project, but is defined here
+// as an extern for ease of use:
+
+extern std::vector<stack_val_t> operational_stack;
 
 #endif // _STACK_HPP
