@@ -206,3 +206,9 @@ Consequently, also any operation that begins with an error type will promote to 
 
 The error type is a string that can and most likely will be displayed on the stack as "Err" running the err_message
 operation will display the full error message and then remove the error from the stack. 
+
+
+# General Note Taking and Observations:
+As with any calculator, it would be nice to store any type as a variable thus, we can make ourselves a variable type,
+Which will essentially just be a struct that wraps the stack_val_t found in [stack.h](components/stack/stack.h)
+This will just keep a string on top of that to hold the "name" of the variable
