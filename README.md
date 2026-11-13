@@ -1,6 +1,7 @@
 # ESP32 S3 based RPN Calculator
 
 ## Objectives:
+- DO NOT USE ANY AI - Actually learn the content...
 - Functionalty to rival the HP42
 - Parts list that costs less that $50
 - Symbolic Math Solver
